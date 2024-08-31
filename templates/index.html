@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily FX News</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Daily FX News</h1>
+    </header>
+    <main>
+        {% if news_items %}
+        <ul>
+            {% for item in news_items %}
+            <li>
+                <a href="{{ item.link }}" target="_blank">{{ item.title }}</a>
+                <p>{{ item.published }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No news available at the moment.</p>
+        {% endif %}
+    </main>
+</body>
+</html>
